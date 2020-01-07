@@ -1,14 +1,20 @@
 # pdiostat
-Run iostat on the servers of a clustered filesystem using pdsh
+Run iostat on the servers of a clustered filesystem using pdsh, sort results, show busiest disks
 
 ## Prerequisites
-pdsh setup up with ssh keys for all servers that are
+pdsh must be setup up with ssh keys for all servers that are
 part of your clustered filesystem. If your hosts are in
 group ''beegfs'', the following should return their hostnames:
 
 ```
-pdsh -g beegfs hostname
+# pdsh -g beegfs hostname
 ```
+
+```
+# iostat -V
+sysstat version 10.1.5
+```
+
 
 ## Usage
 ```
@@ -19,7 +25,7 @@ pdiostat.sh [-g group] [-k sort_field] [-s search_string]
 ```
 Eg: To monitor the ceph cluster, sorting on await, highlighting disk sda on ceph1:
 ```
-pdiostat-g ceph -k 11 -s "ceph1:.*sda .*"
+pdiostat -g ceph -k 11 -s "ceph1:.*sda .*"
 ```
 
 
