@@ -10,6 +10,8 @@ group ''beegfs'', the following should return their hostnames:
 # pdsh -g beegfs hostname
 ```
 
+It needs a reasonably modern version of iostat on both the cluster
+hosts and the host you run pdiostat on.
 ```
 # iostat -V
 sysstat version 10.1.5
