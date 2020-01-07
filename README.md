@@ -19,8 +19,8 @@ sysstat version 10.1.5
 ## Usage
 ```
 pdiostat.sh [-g group] [-k sort_field] [-s search_string]
-  group        : pdsh group defined in .dsh/group/"
-  sort_field   : integer 3-15, sorting iostat output, default=$field"
+  group        : pdsh group defined in .dsh/group/
+  sort_field   : integer 3-15, sorting iostat output, default: #15 %util 
   search_string: string to highlight, eg "ceph1:.*"
 ```
 Eg: To monitor the ceph cluster, sorting on await, highlighting disk sda on ceph1:
