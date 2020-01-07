@@ -28,7 +28,7 @@ Eg: To monitor the ceph cluster, sorting on await, highlighting disk sda on ceph
 pdiostat -g ceph -k 11 -s "ceph1:.*sda .*"
 ```
 
-![Screenshot](pdiostat.png)
+![Screenshot](doc/images/pdiostat.png)
 
 ## License
 
