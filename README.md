@@ -32,4 +32,4 @@ pdiostat -g ceph -k 11 -s "ceph1:.*sda .*"
 
 ## License
 
-This project is licensed under the GPL v3 License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GPL v2 License - see the [LICENSE](LICENSE) file for details
