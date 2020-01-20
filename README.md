@@ -20,8 +20,9 @@ sysstat version 10.1.5
 
 ## Usage
 ```
-pdiostat.sh [-g group] [-k sort_field] [-s search_string]
+pdiostat.sh [-g group] [-n num_lines] [-k sort_field] [-s search_string]
   group        : pdsh group defined in .dsh/group/
+  num_lines    : number of lines to display
   sort_field   : integer 3-15, sorting iostat output, default: #15 %util 
   search_string: string to highlight, eg "ceph1:.*"
 ```
