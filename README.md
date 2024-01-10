@@ -4,10 +4,10 @@ Run iostat on the servers of a clustered filesystem using pdsh, sort results, sh
 ## Prerequisites
 pdsh must be setup up with ssh keys for all servers that are
 part of your clustered filesystem. If your hosts are in
-group ''beegfs'', the following should return their hostnames:
+group ''ceph'', the following should return their hostnames:
 
 ```
-# pdsh -g beegfs hostname
+# pdsh -g ceph hostname
 ```
 
 It needs a reasonably modern version of iostat on both the cluster
@@ -26,9 +26,9 @@ pdiostat.sh [-g group] [-n num_lines] [-k sort_field] [-s search_string]
   sort_field   : integer 3-15, sorting iostat output, default: #15 %util 
   search_string: string to highlight, eg "ceph1:.*"
 ```
-Eg: To monitor the ceph cluster, sorting on await, highlighting disk sda on ceph1:
+Eg: To monitor the pebbles cluster, sorting on w_await, highlighting /dev/sds activity on pebbles-n15:
 ```
-pdiostat -g ceph -k 11 -s "ceph1:.*sda .*"
+pdiostat -g pebbles -k 12 -s "pebbles-n15:  sds.*"
 ```
 
 ![Screenshot](doc/images/pdiostat.png)
