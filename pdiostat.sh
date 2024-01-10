@@ -9,10 +9,10 @@ usage() {
     echo "$0 [-g group] [-n num_lines] [-k sort_field] [-s search_string]"
     echo "  group: pdsh group defined in .dsh/group/"
     echo "  num_lines: number of lines to display"
-    echo "  sort_field: integer 3-15, sorting iostat output, default=$field"
+    echo "  sort_field: integer 3-17, sorting iostat output, default=$field"
     echo "  search_string: string to highlight, eg \"ceph1:.*\""
     echo 
-    echo "Eg: monitor the ceph cluster, sorting on await, highlighting ceph1:sda activity:"
+    echo "Eg: monitor the ceph cluster, sorting on r_await, highlighting ceph1:sda activity:"
     echo "  $0 -g ceph -k 11 -s \"ceph1:.*sda .*\""
     exit
 }
