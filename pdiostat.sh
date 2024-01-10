@@ -3,7 +3,7 @@
 # Get iostat output from all machines in a cluster, show the
 # top 30 stressed disks.
 
-field=15
+field=17
 num_lines=20
 usage() {
     echo "$0 [-g group] [-n num_lines] [-k sort_field] [-s search_string]"
@@ -33,10 +33,10 @@ pdsh -g $group hostname > /dev/null || { echo "Do you have a file ~/.dsh/group/$
 export group field num_lines
 
 pdiostat() {
-    pdsh -g $group 'iostat -mxy 1 1 | egrep -v "^dm|^md"' |\
+    pdsh -g $group 'iostat -mxy 1 1 | egrep -v "^dm|^md|^nvme"' |\
       tr -s ' ' | sort -rnk$field -t' ' | head -$num_lines |\
-      (echo -ne 'host\t'; iostat -mx | grep Device; cat -) |\
-      column -tx | sed -e "s/\($1\)/`tput smso`\1`tput rmso`/g"
+      (seq -s " " 1 17 | sed -r "s;$field;&*;"; echo -ne 'host\t'; iostat -mx | grep Device; cat -) |\
+      column -t | sed -e "s/\($1\)/`tput smso`\1`tput rmso`/g"
 }
 
 export -f pdiostat
